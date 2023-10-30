@@ -77,7 +77,9 @@ public class BrickTransport extends GoodsTransport {
             default:
                 discount = 0;
         }
-        return (price + vehiclePrice + tax) - discount;
+        float charge = (price + vehiclePrice + tax) - discount;
+
+        return charge;
     }
 
 }

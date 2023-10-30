@@ -47,25 +47,20 @@ public class TimberTransport extends GoodsTransport {
 
     @Override
     public String vehicleSelection() {
-        // int brickQty = getBrickQuantity();
-        // String vehicleType = "Truck";
-        // if (brickQty >= 300 && brickQty <= 500) {
-        // vehicleType = "Lorry";
-        // } else {
-        // vehicleType = "MonsterLorry";
-        // }
-        // return vehicleType;
-        return "";
+        //setting default return type
+        return "Truck";
     }
 
     @Override
     public float calculateTotalCharge() {
-        float volume = (float) (3.142 * getTimberRadius() * getTimberRadius() * getTimberLength());
+        float volume = (float) (3.147 * getTimberRadius() * getTimberRadius() * getTimberLength());
         String vehicleType = vehicleSelection();
         float vehiclePrice = 1000;
 
-        if (vehicleType.equalsIgnoreCase("Lorry")) {
+        if (vehicleType.equalsIgnoreCase("Truck")) {
             vehiclePrice = 1700;
+        } else if (vehicleType.equalsIgnoreCase("Lorry")) {
+            vehiclePrice = 1000;
         } else {
             vehiclePrice = 3000;
         }
@@ -89,7 +84,9 @@ public class TimberTransport extends GoodsTransport {
             default:
                 discount = 0;
         }
-        return (price + vehiclePrice + tax) - discount;
+        float charge = (price + vehiclePrice + tax) - discount;
+
+        return charge;
     }
 
 }
