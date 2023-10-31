@@ -16,20 +16,21 @@ public class Utility {
     }
 
     public GoodsTransport parseDetails(String input) {
-        // transportId:transportDate:transportRating:transportType:timberLength:timberRadius,timberType
+        // transportId:transportDate:transportRating:transportType:brickSize,brickQuantity,brickPrice.
+        // transportId:transportDate:transportRating:transportType:timberLength:timberRadius,timberType, timberPrice
         String[] ipArrStrings = input.split(":");
-        String[] subInputStrings = ipArrStrings[4].split(",");
+        // String[] subInputStrings = ipArrStrings[4].split(",");
         GoodsTransport transport;
 
         if (ipArrStrings[3].equalsIgnoreCase("TimberTransport")) {
             transport = new TimberTransport(ipArrStrings[0], ipArrStrings[1], Integer.parseInt(ipArrStrings[2]),
-                    ipArrStrings[3], Float.parseFloat(subInputStrings[0]), Float.parseFloat(subInputStrings[1]),
-                    subInputStrings[2], Float.parseFloat(subInputStrings[3]));
+                    ipArrStrings[3], Float.parseFloat(ipArrStrings[4]), Float.parseFloat(ipArrStrings[5]),
+                    ipArrStrings[6], Float.parseFloat(ipArrStrings[7]));
         } else {
             transport = new BrickTransport(
                     ipArrStrings[0], ipArrStrings[1], Integer.parseInt(ipArrStrings[2]),
-                    ipArrStrings[3], Float.parseFloat(subInputStrings[0]), Integer.parseInt(subInputStrings[1]),
-                    Float.parseFloat(subInputStrings[2]));
+                    ipArrStrings[3], Float.parseFloat(ipArrStrings[4]), Integer.parseInt(ipArrStrings[5]),
+                    Float.parseFloat(ipArrStrings[6]));
         }
         return transport;
     }

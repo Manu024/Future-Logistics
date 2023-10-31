@@ -1,5 +1,8 @@
 public class UserInterface {
     public static void main(String[] args) throws Exception {
+        //Input format
+        // transportId:transportDate:transportRating:transportType:brickSize,brickQuantity,brickPrice.
+        // transportId:transportDate:transportRating:transportType:timberLength:timberRadius,timberType, timberPrice
         //Sample I/O example for brickTransport
         Utility util = new Utility();
         // String input = "RTS123Z:26/10/2023:2:Bricktransport:10,400,5";
