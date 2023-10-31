@@ -81,7 +81,7 @@ public class TimberTransport extends GoodsTransport {
         float discount = 0;
         switch (transportRating) {
             case 5:
-                discount = (float) (0.020 * price);
+                discount = (float) (0.20 * price);
                 break;
             case 3:
             case 4:
