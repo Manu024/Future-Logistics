@@ -47,8 +47,18 @@ public class TimberTransport extends GoodsTransport {
 
     @Override
     public String vehicleSelection() {
-        //setting default return type
-        return "Truck";
+        // setting default return type
+        double area = 2 * 3.147 * getTimberLength() * getTimberRadius();
+        String vehicleType = "Truck";
+        if (area < 250) {
+            vehicleType = "Truck";
+        } else if (area >= 250 && area <= 400) {
+            vehicleType = "Lorry";
+        } else {
+            vehicleType = "MonsterLorry";
+        }
+
+        return vehicleType;
     }
 
     @Override
